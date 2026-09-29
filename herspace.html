@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>HERSPACE | A Space Made for Her</title>
+
+<style>
+
+/* ================= GENERAL ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff7fb;
+    color:#333;
+    transition:0.3s;
+}
+
+section{
+    padding:80px 8%;
+    text-align:center;
+}
+
+section h2{
+    color:#e83e8c;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+
+/* ================= NAVBAR ================= */
+
+header{
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    box-shadow:0 2px 10px #ddd;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#e83e8c;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#e83e8c;
+}
+
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown>a{
+    cursor:pointer;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:170px;
+    box-shadow:0 5px 15px #ccc;
+    border-radius:10px;
+    padding:10px;
+    top:25px;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:10px;
+}
+
+.dropdown-content a:hover{
+    background:#ffe3ef;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+
+/* ================= THEME BUTTON ================= */
+
+#themeBtn{
+    border:none;
+    background:#e83e8c;
+    color:white;
+    padding:9px 13px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+
+/* ================= HOME ================= */
+
+#home{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+
+    background:
+    linear-gradient(135deg,#ffe0ed,#fff7fb);
+}
+
+.home-content h1{
+    font-size:60px;
+    color:#e83e8c;
+    margin-bottom:15px;
+}
+
+.home-content p{
+    font-size:20px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.6;
+}
+
+.main-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#e83e8c;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
+}
+
+.main-btn:hover{
+    background:#c92d73;
+}
+
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:260px;
+    padding:30px 20px;
+    border-radius:20px;
+    box-shadow:0 5px 20px #ddd;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px #ccc;
+}
+
+.card .icon{
+    font-size:50px;
+}
+
+.card h3{
+    margin:15px 0;
+    color:#e83e8c;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+
+/* ================= ABOUT ================= */
+
+.info-box{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px #ddd;
+    line-height:1.7;
+}
+
+
+/* ================= POPUP ================= */
+
+.popup{
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+    z-index:2000;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.popup-box{
+    background:white;
+    width:600px;
+    max-width:100%;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    position:relative;
+    animation:popupAnimation 0.3s ease;
+}
+
+@keyframes popupAnimation{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.popup-icon{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.popup-box h2{
+    color:#e83e8c;
+    margin-bottom:15px;
+}
+
+.popup-box p{
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    background:#e83e8c;
+    color:white;
+    border:none;
+    padding:10px 25px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.close-btn:hover{
+    background:#c92d73;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:350px;
+    max-width:90%;
+    padding:14px;
+    border:2px solid #f1b2cc;
+    border-radius:25px;
+    outline:none;
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.gallery-box{
+    width:180px;
+    height:160px;
+    background:#ffe0ed;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.gallery-box:hover{
+    transform:scale(1.08);
+}
+
+
+/* ================= QUOTES ================= */
+
+.quote-box{
+    max-width:700px;
+    margin:auto;
+    padding:40px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 5px 20px #ddd;
+}
+
+#quote{
+    font-size:22px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+
+/* ================= CONTACT ================= */
+
+form{
+    max-width:550px;
+    margin:auto;
+}
+
+form input,
+form textarea{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+form textarea{
+    height:130px;
+    resize:none;
+}
+
+form input:focus,
+form textarea:focus{
+    border:2px solid #e83e8c;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#e83e8c;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+.dark{
+    background:#18151a;
+    color:white;
+}
+
+.dark header,
+.dark .card,
+.dark .info-box,
+.dark .quote-box,
+.dark .popup-box,
+.dark .dropdown-content{
+    background:#272229;
+    color:white;
+}
+
+.dark nav a{
+    color:white;
+}
+
+.dark #home{
+    background:linear-gradient(135deg,#30232c,#18151a);
+}
+
+.dark .search-box input,
+.dark form input,
+.dark form textarea{
+    background:#302b31;
+    color:white;
+}
+
+.dark .gallery-box{
+    background:#3b2934;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    .home-content h1{
+        font-size:42px;
+    }
+
+    .home-content p{
+        font-size:17px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================================= -->
+<!-- NAVIGATION -->
+<!-- ================================================= -->
+
+<header>
+
+    <div class="logo">
+        HERSPACE 🎀
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <div class="dropdown">
+
+            <a href="#beauty">Explore ▾</a>
+
+            <div class="dropdown-content">
+
+                <a href="#beauty">Beauty</a>
+
+                <a href="#fashion">Fashion</a>
+
+                <a href="#music">Music</a>
+
+                <a href="#hobbies">Hobbies</a>
+
+                <a href="#selfcare">Self-Care</a>
+
+            </div>
+
+        </div>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#quotes">Quotes</a>
+
+        <a href="#contact">Contact</a>
+
+        <button id="themeBtn" onclick="changeTheme()">
+            🌙
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================================================= -->
+<!-- HOME -->
+<!-- ================================================= -->
+
+<section id="home">
+
+    <div class="home-content">
+
+        <h1>
+            Welcome to HERSPACE 🎀
+        </h1>
+
+        <p>
+            A beautiful little corner made for girls to
+            explore beauty, fashion, music, hobbies,
+            self-care and everything that makes them happy.
+        </p>
+
+        <a href="#about" class="main-btn">
+            Explore HERSPACE ✨
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ABOUT -->
+<!-- ================================================= -->
+
+<section id="about">
+
+    <h2>💕 About HERSPACE</h2>
+
+    <div class="info-box">
+
+        <p>
+            HERSPACE is a lifestyle website created to
+            celebrate creativity, confidence, hobbies,
+            fashion, beauty and self-care.
+        </p>
+
+        <br>
+
+        <p>
+            It is a positive space where girls can explore
+            their interests, discover new ideas and simply
+            enjoy being themselves.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- BEAUTY -->
+<!-- ================================================= -->
+
+<section id="beauty">
+
+    <h2>💄 Beauty</h2>
+
+    <div class="cards">
+
+
+        <!-- MAKEUP -->
+
+        <div class="card"
+        onclick="openPopup(
+        '💄',
+        'Makeup',
+        'Makeup can be a fun way to express creativity. Explore simple everyday looks, party looks and creative makeup ideas. Always choose products that suit you and use them safely.'
+        )">
+
+            <div class="icon">💄</div>
+
+            <h3>Makeup</h3>
+
+            <p>
+                Explore makeup ideas and creative looks.
+            </p>
+
+        </div>
+
+
+        <!-- SKINCARE -->
+
+        <div class="card"
+        onclick="openPopup(
+        '🧴',
+        'Skincare',
+        'Skincare is about taking care of your skin. A simple routine can include gentle cleansing, moisturizing and sun protection. Choose products suitable for your skin.'
+        )">
+
+            <div class="icon">🧴</div>
+
+            <h3>Skincare</h3>
+
+            <p>
+                Discover simple skincare ideas.
+            </p>
+
+        </div>
+
+
+        <!-- NAILS -->
+
+        <div class="card"
+        onclick="openPopup(
+        '💅',
+        'Nail Art',
+        'Nail art is a fun creative hobby. Try simple designs such as flowers, stars, hearts, French tips and pastel patterns.'
+        )">
+
+            <div class="icon">💅</div>
+
+            <h3>Nail Art</h3>
+
+            <p>
+                Discover cute and creative nail designs.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- FASHION -->
+<!-- ================================================= -->
+
+<section id="fashion">
+
+    <h2>👗 Fashion</h2>
+
+    <div class="cards">
+
+
+        <!-- OUTFITS -->
+
+        <div class="card"
+        onclick="openPopup(
+        '👗',
+        'Outfit Ideas',
+        'Explore different outfit ideas for college, casual days, festivals and special occasions. Choose clothes that are comfortable and make you feel confident.'
+        )">
+
+            <div class="icon">👗</div>
+
+            <h3>Outfits</h3>
+
+            <p>
+                Find inspiration for different occasions.
+            </p>
+
+        </div>
+
+
+        <!-- ACCESSORIES -->
+
+        <div class="card"
+        onclick="openPopup(
+        '👜',
+        'Accessories',
+        'Accessories can add personality to an outfit. Explore bags, jewellery, watches, hair accessories and other fun additions.'
+        )">
+
+            <div class="icon">👜</div>
+
+            <h3>Accessories</h3>
+
+            <p>
+                Explore bags, jewellery and accessories.
+            </p>
+
+        </div>
+
+
+        <!-- FOOTWEAR -->
+
+        <div class="card"
+        onclick="openPopup(
+        '👟',
+        'Footwear',
+        'Explore sneakers, sandals, flats and other footwear styles. Choose footwear that is comfortable and suitable for the occasion.'
+        )">
+
+            <div class="icon">👟</div>
+
+            <h3>Footwear</h3>
+
+            <p>
+                Explore different footwear styles.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- MUSIC -->
+<!-- ================================================= -->
+
+<section id="music">
+
+    <h2>🎶 Music & Mood</h2>
+
+    <div class="cards">
+
+
+        <!-- HAPPY -->
+
+        <div class="card"
+        onclick="openPopup(
+        '😊',
+        'Happy Mood',
+        'Feeling happy? Choose energetic songs, dance music or your favorite playlist and enjoy the moment!'
+        )">
+
+            <div class="icon">😊</div>
+
+            <h3>Happy</h3>
+
+            <p>
+                Enjoy fun songs and positive vibes.
+            </p>
+
+        </div>
+
+
+        <!-- CHILL -->
+
+        <div class="card"
+        onclick="openPopup(
+        '🌙',
+        'Chill Mood',
+        'For a peaceful mood, try calm music, soft playlists or relaxing instrumental songs.'
+        )">
+
+            <div class="icon">🌙</div>
+
+            <h3>Chill</h3>
+
+            <p>
+                Relax with peaceful music.
+            </p>
+
+        </div>
+
+
+        <!-- DANCE -->
+
+        <div class="card"
+        onclick="openPopup(
+        '💃',
+        'Dance Mood',
+        'Put on your favorite energetic song and enjoy dancing! Dancing can be a fun way to express yourself and enjoy music.'
+        )">
+
+            <div class="icon">💃</div>
+
+            <h3>Dance</h3>
+
+            <p>
+                Turn up the music and dance!
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- HOBBIES -->
+<!-- ================================================= -->
+
+<section id="hobbies">
+
+    <h2>🎨 Hobbies</h2>
+
+    <div class="cards">
+
+
+        <!-- DANCING -->
+
+        <div class="card"
+        onclick="openPopup(
+        '💃',
+        'Dancing',
+        'Dancing is a creative way to express yourself. You can explore Bollywood, classical, hip-hop, freestyle or simply dance to your favorite songs.'
+        )">
+
+            <div class="icon">💃</div>
+
+            <h3>Dancing</h3>
+
+            <p>
+                Express yourself through dance.
+            </p>
+
+        </div>
+
+
+        <!-- DRAWING -->
+
+        <div class="card"
+        onclick="openPopup(
+        '🎨',
+        'Drawing',
+        'Drawing allows you to turn your imagination into art. Try doodles, portraits, nature drawings, cartoons or digital art.'
+        )">
+
+            <div class="icon">🎨</div>
+
+            <h3>Drawing</h3>
+
+            <p>
+                Turn imagination into art.
+            </p>
+
+        </div>
+
+
+        <!-- SHOPPING -->
+
+        <div class="card"
+        onclick="openPopup(
+        '🛍️',
+        'Shopping',
+        'Shopping can be a fun activity when done thoughtfully. Explore fashion, accessories, stationery and other things you enjoy.'
+        )">
+
+            <div class="icon">🛍️</div>
+
+            <h3>Shopping</h3>
+
+            <p>
+                Explore styles and new things.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SELF CARE -->
+<!-- ================================================= -->
+
+<section id="selfcare">
+
+    <h2>🧘🏻‍♀️ Self-Care</h2>
+
+    <div class="cards">
+
+
+        <!-- RELAX -->
+
+        <div class="card"
+        onclick="openPopup(
+        '🌸',
+        'Relax',
+        'Take a break from your busy schedule. Listen to music, spend time on a hobby, go for a walk or simply enjoy some quiet time.'
+        )">
+
+            <div class="icon">🌸</div>
+
+            <h3>Relax</h3>
+
+            <p>
+                Take some peaceful time for yourself.
+            </p>
+
+        </div>
+
+
+        <!-- READING -->
+
+        <div class="card"
+        onclick="openPopup(
+        '📖',
+        'Reading',
+        'Reading can be a relaxing and enjoyable hobby. You can read novels, stories, comics, magazines or books about topics you love.'
+        )">
+
+            <div class="icon">📖</div>
+
+            <h3>Reading</h3>
+
+            <p>
+                Discover something interesting to read.
+            </p>
+
+        </div>
+
+
+        <!-- ME TIME -->
+
+        <div class="card"
+        onclick="openPopup(
+        '☕',
+        'Me Time',
+        'Me time means giving yourself some peaceful time. Listen to music, enjoy a favorite drink, draw something or simply relax.'
+        )">
+
+            <div class="icon">☕</div>
+
+            <h3>Me Time</h3>
+
+            <p>
+                Enjoy some quality time with yourself.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- SEARCH -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>🔎 Find Your Interest</h2>
+
+    <div class="search-box">
+
+        <input
+        type="text"
+        id="search"
+        placeholder="Search beauty, fashion, music..."
+        onkeyup="searchContent()">
+
+    </div>
+
+    <p id="searchResult">
+        Start typing to search HERSPACE.
+    </p>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- GALLERY -->
+<!-- ================================================= -->
+
+<section id="gallery">
+
+    <h2>📸 HER Gallery</h2>
+
+    <div class="gallery">
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '🌸',
+        'Flowers',
+        'Flowers bring a soft and beautiful feeling to HERSPACE. 🌸'
+        )">
+            🌸
+        </div>
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '🎀',
+        'Cute Style',
+        'A cute aesthetic space filled with creativity and personality. 🎀'
+        )">
+            🎀
+        </div>
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '💄',
+        'Beauty',
+        'Beauty is about creativity, confidence and expressing yourself.'
+        )">
+            💄
+        </div>
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '💃',
+        'Dance',
+        'Dance, music and happiness all in one place! 💃'
+        )">
+            💃
+        </div>
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '🦋',
+        'Freedom',
+        'Be yourself, explore your interests and enjoy your own journey. 🦋'
+        )">
+            🦋
+        </div>
+
+
+        <div class="gallery-box"
+        onclick="openPopup(
+        '🌷',
+        'Bloom',
+        'Keep learning, creating and growing at your own pace. 🌷'
+        )">
+            🌷
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- QUOTES -->
+<!-- ================================================= -->
+
+<section id="quotes">
+
+    <h2>✨ Daily Quotes</h2>
+
+    <div class="quote-box">
+
+        <p id="quote">
+            "Be yourself. Your vibe is your superpower. ✨"
+        </p>
+
+        <button
+        class="main-btn"
+        onclick="newQuote()">
+
+            New Quote 💕
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- CONTACT -->
+<!-- ================================================= -->
+
+<section id="contact">
+
+    <h2>📩 Contact HERSPACE</h2>
+
+    <form onsubmit="submitForm(event)">
+
+        <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required>
+
+        <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required>
+
+        <textarea
+        id="message"
+        placeholder="Write your message..."
+        required></textarea>
+
+        <button
+        type="submit"
+        class="main-btn">
+
+            Send Message 💕
+
+        </button>
+
+    </form>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+    <p>
+        © 2026 HERSPACE | Made with 💗
+    </p>
+
+</footer>
+
+
+
+<!-- ================================================= -->
+<!-- POPUP -->
+<!-- ================================================= -->
+
+<div
+class="popup"
+id="popup">
+
+    <div class="popup-box">
+
+        <div
+        class="popup-icon"
+        id="popupIcon">
+        </div>
+
+        <h2 id="popupTitle">
+        </h2>
+
+        <p id="popupText">
+        </p>
+
+        <button
+        class="close-btn"
+        onclick="closePopup()">
+
+            Close ✕
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+
+/* ================= POPUP ================= */
+
+function openPopup(icon,title,text){
+
+    document.getElementById("popupIcon").innerHTML = icon;
+
+    document.getElementById("popupTitle").innerHTML = title;
+
+    document.getElementById("popupText").innerHTML = text;
+
+    document.getElementById("popup").style.display = "flex";
+
+}
+
+
+function closePopup(){
+
+    document.getElementById("popup").style.display = "none";
+
+}
+
+
+/* Close popup when clicking outside */
+
+document.getElementById("popup").addEventListener("click",function(event){
+
+    if(event.target === this){
+
+        closePopup();
+
+    }
+
+});
+
+
+
+/* ================= DARK MODE ================= */
+
+function changeTheme(){
+
+    document.body.classList.toggle("dark");
+
+    let button =
+    document.getElementById("themeBtn");
+
+    if(document.body.classList.contains("dark")){
+
+        button.innerHTML = "☀️";
+
+    }
+
+    else{
+
+        button.innerHTML = "🌙";
+
+    }
+
+}
+
+
+
+/* ================= QUOTES ================= */
+
+function newQuote(){
+
+    let quotes = [
+
+        "Be yourself. Your vibe is your superpower. ✨",
+
+        "Believe in yourself and keep going. 💕",
+
+        "Your happiness matters too. 🌸",
+
+        "You are stronger than you think. 🦋",
+
+        "Make yourself proud. 🎀",
+
+        "Enjoy the little things in life. 🌷",
+
+        "You deserve your own love too. 💗",
+
+        "Create your own happiness. ✨"
+
+    ];
+
+    let random =
+    Math.floor(Math.random() * quotes.length);
+
+    document.getElementById("quote").innerHTML =
+    quotes[random];
+
+}
+
+
+
+/* ================= CONTACT FORM ================= */
+
+function submitForm(event){
+
+    event.preventDefault();
+
+    let name =
+    document.getElementById("name").value;
+
+    alert(
+        "Thank you, " +
+        name +
+        "! 💕 Your message has been received."
+    );
+
+    event.target.reset();
+
+}
+
+
+
+/* ================= SEARCH ================= */
+
+function searchContent(){
+
+    let search =
+    document.getElementById("search").value.toLowerCase();
+
+    let result =
+    document.getElementById("searchResult");
+
+
+    if(search === ""){
+
+        result.innerHTML =
+        "Start typing to search HERSPACE.";
+
+    }
+
+
+    else if(search.includes("makeup")){
+
+        result.innerHTML =
+        "💄 Makeup found! Scroll to the Beauty section.";
+
+        document.getElementById("beauty")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("beauty")){
+
+        result.innerHTML =
+        "💄 Beauty section found!";
+
+        document.getElementById("beauty")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("skin")){
+
+        result.innerHTML =
+        "🧴 Skincare found!";
+
+        document.getElementById("beauty")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("fashion")){
+
+        result.innerHTML =
+        "👗 Fashion section found!";
+
+        document.getElementById("fashion")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("outfit")){
+
+        result.innerHTML =
+        "👗 Outfit ideas found!";
+
+        document.getElementById("fashion")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("music")){
+
+        result.innerHTML =
+        "🎶 Music section found!";
+
+        document.getElementById("music")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("dance")){
+
+        result.innerHTML =
+        "💃 Dancing found!";
+
+        document.getElementById("hobbies")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("drawing")){
+
+        result.innerHTML =
+        "🎨 Drawing found!";
+
+        document.getElementById("hobbies")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("shopping")){
+
+        result.innerHTML =
+        "🛍️ Shopping found!";
+
+        document.getElementById("hobbies")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("reading")){
+
+        result.innerHTML =
+        "📖 Reading found!";
+
+        document.getElementById("selfcare")
+        .scrollIntoView();
+
+    }
+
+
+    else if(search.includes("self")){
+
+        result.innerHTML =
+        "🌸 Self-Care section found!";
+
+        document.getElementById("selfcare")
+        .scrollIntoView();
+
+    }
+
+
+    else{
+
+        result.innerHTML =
+        "Sorry! No matching option found. 💕";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
